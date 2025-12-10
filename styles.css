@@ -1,0 +1,455 @@
+/* Toga Fashion House - Main Stylesheet */
+
+/* --- Variables --- */
+:root {
+  /* Brand Colors */
+  --color-primary: #022c22; /* Deep Emerald/Dark Green */
+  --color-secondary: #064e3b; /* Slightly lighter green */
+  --color-accent: #d4af37; /* Gold */
+  --color-accent-light: #eecf6d;
+  --color-light: #fdfbf7; /* Off-white/Cream */
+  --color-dark: #1a1a1a;
+  --color-gray: #4a4a4a;
+  --color-border: #e5e7eb;
+
+  /* Fonts (System fonts stack for speed) */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Layout */
+  --max-width: 1200px;
+  --container-padding: 1.5rem;
+  --header-height: 70px;
+}
+
+/* --- Reset & Base --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--color-gray);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --- Utilities --- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.text-center { text-align: center; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-4 { margin-bottom: 4rem; }
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-gallery { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+
+/* Explicit Gallery Grid Layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns by default (mobile) */
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+  }
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #000;
+}
+.btn-primary:hover {
+  background-color: var(--color-accent-light);
+}
+
+.btn-secondary {
+  border-color: #fff;
+  color: #fff;
+  background: transparent;
+}
+.btn-secondary:hover {
+  background-color: #fff;
+  color: var(--color-dark);
+}
+
+.btn-outline {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+.btn-whatsapp:hover {
+  background-color: #128C7E;
+}
+
+/* --- Header & Navigation (Updated for Mobile Toggle) --- */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--header-height);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 var(--container-padding);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+  z-index: 1001; /* Ensure logo stays above menu */
+}
+.logo span { color: var(--color-accent); }
+
+/* Toggle Checkbox (Hidden) */
+#nav-toggle {
+  display: none;
+}
+
+/* Toggle Label (Hamburger Icon) */
+.nav-toggle-label {
+  display: none; /* Hidden on desktop */
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  z-index: 1001;
+}
+
+/* Desktop Nav */
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+nav a {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-dark);
+}
+
+nav a:hover, nav a.active {
+  color: var(--color-accent);
+}
+
+nav .btn-nav {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 2px;
+}
+nav .btn-nav:hover {
+  background-color: var(--color-secondary);
+}
+
+/* --- Mobile Navigation (The Toggle Logic) --- */
+@media (max-width: 768px) {
+  /* Show the hamburger icon */
+  .nav-toggle-label {
+    display: block;
+  }
+
+  /* Style the menu as a dropdown/overlay */
+  nav {
+    position: absolute;
+    top: 100%; /* Push below header */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    transform: scaleY(0); /* Hidden by default */
+    transform-origin: top;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    border-top: 1px solid var(--color-border);
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    align-items: stretch; /* Full width links */
+  }
+
+  nav a {
+    display: block;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  nav .btn-nav {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  /* The Logic: When checkbox is checked, show nav */
+  #nav-toggle:checked ~ nav {
+    transform: scaleY(1);
+  }
+}
+
+/* --- Hero Section --- */
+.hero {
+  /* Fallback color */
+  background-color: var(--color-primary);
+  /* Gradient overlay + Image placeholder */
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 6rem 0;
+  text-align: center;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+.hero h1 { color: white; font-size: 2.5rem; margin-bottom: 1.5rem; }
+.hero p { color: #e5e5e5; font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; }
+.hero-highlights { color: var(--color-accent); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 2rem; }
+.btn-group { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+/* --- Cards --- */
+.card {
+  background: #fff;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  transition: transform 0.2s; /* Subtle hover effect */
+}
+.card:hover { transform: translateY(-3px); border-color: var(--color-accent); }
+.card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.icon-placeholder { font-size: 2rem; color: var(--color-accent); margin-bottom: 1rem; display: block; }
+
+/* --- Testimonials --- */
+.testimonial-card {
+  background: #fff;
+  padding: 2rem;
+  border-left: 4px solid var(--color-accent);
+}
+.stars { color: var(--color-accent); margin-bottom: 0.5rem; }
+.quote { font-style: italic; margin-bottom: 1rem; font-size: 0.95rem; }
+.author { font-weight: 700; color: var(--color-primary); font-family: var(--font-serif); }
+
+/* --- Gallery --- */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  background-color: #eee;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.7); color: white;
+  padding: 0.8rem; font-size: 0.9rem; text-align: center;
+}
+
+/* --- Product Cards --- */
+.product-card {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-color: var(--color-accent);
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1; /* Keeps images square */
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.product-info p {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.product-info .btn {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 0.85rem;
+}
+
+/* --- Contact Page --- */
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+.contact-info, .contact-form { flex: 1; min-width: 300px; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+.form-control {
+  width: 100%; padding: 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  font-family: inherit;
+}
+.map-placeholder {
+  background: #e5e7eb; height: 300px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-gray); margin-top: 2rem;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 4rem 0 2rem;
+  margin-top: 4rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-links li { margin-bottom: 0.8rem; }
+.footer-links a { color: #ccc; }
+.footer-links a:hover { color: var(--color-accent); }
+.copyright {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* --- Responsive Text --- */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  .section { padding: 3rem 0; }
+}
