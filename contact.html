@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Toga Fashion House</title>
+    <meta name="description" content="Visit Toga Fashion House in Awka or contact us for bespoke orders. Book a fitting or chat with us on WhatsApp.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Toga<span>.</span></a>
+
+            <!-- Mobile Toggle (Checkbox Hack) -->
+            <input type="checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                &#9776; <!-- Hamburger Icon -->
+            </label>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html" class="active btn-nav">Book a Fitting</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div style="background-color: var(--color-primary); color: white; padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h1>Visit Toga Fashion House</h1>
+            <p style="color: #e5e5e5; max-width: 600px; margin: 0 auto;">Ready to upgrade your wardrobe? Visit us in Awka or reach out to book a fitting, place an order, or ask a question.</p>
+        </div>
+    </div>
+
+    <!-- Contact Content -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-wrapper">
+                
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2 class="mb-2">Get In Touch</h2>
+                    
+                    <div class="info-item">
+                        <h3>📍 Address</h3>
+                        <p>No. 24 Zik Avenue, Awka<br>Anambra State, Nigeria</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>📞 Phone & WhatsApp</h3>
+                        <p>+234 800 123 4567</p>
+                        <div style="margin-top: 1rem;">
+                            <!-- CRITICAL WHATSAPP BUTTON -->
+                            <a href="https://wa.me/2348001234567" target="_blank" rel="noopener" class="btn btn-whatsapp">
+                                Chat on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>✉️ Email</h3>
+                        <p>info@togafashionhouse.com</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>📷 Instagram</h3>
+                        <a href="#" style="color: var(--color-secondary); font-weight: 600;">@togafashionhouse</a>
+                    </div>
+                </div>
+
+                <!-- Contact Form (HTML Only) -->
+                <div class="contact-form">
+                    <h2 class="mb-2">Send a Message</h2>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+234..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" class="form-control" placeholder="I would like to book a fitting..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map Placeholder -->
+            <div class="map-placeholder">
+                <p>Google Map Loading... (Placeholder)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="color: white; font-size: 1.8rem; margin-bottom: 1rem; display: block;">Toga<span>.</span></a>
+                    <p style="color: #aaa; font-size: 0.9rem;">Where Fashion Meets Luxury & Excellence.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="boutique.html">The Boutique</a></li>
+                        <li><a href="gallery.html">Style Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>Awka, Anambra State</li>
+                        <li><a href="contact.html">Book a Fitting</a></li>
+                        <li><a href="https://wa.me/2348001234567" target="_blank" rel="noopener">WhatsApp Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Toga Fashion House. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
